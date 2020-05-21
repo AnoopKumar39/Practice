@@ -1,0 +1,23 @@
+#!/bin/bash
+
+### This is about using special variables
+
+echo "The script name = $$"
+
+echo "Exit status of previous command = $?"
+
+sleep 100 &
+
+echo "Last executed BG job = $!"
+
+echo "All the values parsed = $*"
+
+echo "All the values parsed = $@"
+
+echo "Number of values parsed = $#"
+
+echo "Script name = $0"
+
+echo "First, Second and Ninth values parsed = $1, $2, $9"
+
+echo "Eleventh value parsed = $11"

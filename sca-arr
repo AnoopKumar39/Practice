@@ -1,0 +1,10 @@
+#!/bin/bash
+name=(anoop ak navya nithish mama anvesh raj appu shri ale shai suma sony mama.eld chai man mad)
+echo first one=${name[0]}
+echo "second one=${name[1]}"
+echo all = ${name[*]}
+echo all again = ${name[@]}
+#echo all again = ${name[&]}
+echo number of values = ${#name[*]}
+echo range of values = ${name[*]:3:2}
+

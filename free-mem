@@ -1,0 +1,16 @@
+#!/bin/bash
+## This is script is to calculate free memory
+
+tot=$(free -m|grep Mem|awk '{print $2}')
+free=$(free -m|grep Mem|awk '{print $4}')
+used=$(free -m|grep Mem|awk '{print $3}')
+
+fre=$((free*100))
+fre=$((fre/tot))
+
+echo "Total Memory = $tot"
+echo "Used Memory = $used"
+echo "Free Memory = $free"
+
+echo "Free Memory % = $fre"
+

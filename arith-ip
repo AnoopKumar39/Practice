@@ -1,0 +1,16 @@
+#!/bin/bash
+
+read -p "Enter first value: " val1
+
+read -p "Enter second value: " val2
+
+r="\e[34m"
+n="\e[0m"
+
+echo -e $r"addition = $((val1+val2))"
+echo "subtraction = $((val1-val2))"
+echo "multiplication = $((val1*val2))"
+echo -e "division = $((val1/val2)) $n"
+
+
+

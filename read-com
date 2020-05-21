@@ -1,0 +1,12 @@
+#!/bin/bash
+
+echo "Enter your name"
+read name
+
+echo "Enter your location"
+read location
+
+echo "Enter your interested course"
+read course
+
+echo "Hello $name, welcome to $course tutorial for $location people"

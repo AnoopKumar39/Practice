@@ -1,0 +1,32 @@
+#!/bin/bash
+
+read -p 'Enter first value: ' val1
+if [ -z "$val1" ]
+then
+	exit 1
+fi
+
+read -p 'Enter second value: ' val2
+if [ -z "$val2" ]
+then
+	exit 1
+fi
+
+read -p 'Enter the operator (add|sub|mul|div): ' opp
+
+if [ $opp = add ]
+then 
+	echo "Addition = $((val1+val2))"
+elif [ $opp = sub ]
+then 
+	echo "Subtraction = $((val1-val2))"
+elif [ $opp = mul ]
+then 
+	echo "Multiplication = $((val1*val2))"
+elif [ $opp = div ]
+then
+	echo "Division = $((val1/val2))"
+else
+	echo -e "\e[35mInvalid input\e[0m"
+fi
+

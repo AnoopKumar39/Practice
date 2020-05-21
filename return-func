@@ -1,0 +1,22 @@
+#!/bin/bash
+
+just() {
+echo -e "\e[32mHello World!\e[0m"
+echo "exit status = $?"
+echo "Hi, how are you?"
+return 5
+echo "It won't work"
+}
+
+just
+echo "exit status = $?"
+
+justa() {
+echo "Hello Anoop!"
+exit 5
+echo "This is also won't work"
+}
+
+justa
+
+echo "Hello World Again!!"

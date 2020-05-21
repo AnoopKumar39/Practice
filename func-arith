@@ -1,0 +1,26 @@
+#!/bin/bash
+
+a=450
+b=20
+
+add() {
+echo addition = $((a+b))
+}
+
+sub() {
+echo subtraction = $((a-b))
+}
+
+mul() {
+echo multiplication = $((a*b))
+}
+
+div() {
+echo division = $((a/b))
+}
+
+add
+sub
+mul
+div
+

@@ -1,0 +1,27 @@
+#!/bin/bash
+
+echo -e "\e[34mEnter first value:\e[0m "
+read val1
+
+echo -e "\e[34mEnter second value:\e[0m "
+read val2
+
+echo -e "\e[34mEnter the opeartor (add|sub|mul|div):\e[0m "
+read opp
+
+if [ $opp = add ]
+then 
+	echo "Addition = $((val1+val2))"
+elif [ $opp = sub ]
+then 
+	echo "Subtraction = $((val1-val2))"
+elif [ $opp = mul ]
+then 
+	echo "Multiplication = $((val1*val2))"
+elif [ $opp = div ]
+then
+	echo "Division = $((val1/val2))"
+else
+	echo -e "\e[35mInvalid input\e[0m"
+fi
+

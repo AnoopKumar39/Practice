@@ -1,0 +1,29 @@
+#!/bin/bash
+
+read -p 'Enter first value: ' a
+if [ -z "$a" ]
+then
+	echo "Invalid input"
+	exit 1
+fi
+
+read -p 'Enter second value: ' b
+if [ -z "$b" ]
+then
+	echo "Invalid input"
+	exit 1
+fi
+
+read -p 'Enter the operator(add|sub|mul|div): ' op
+if [ -z "$op" ]
+then
+	echo "Invalid input"
+	exit1
+fi
+
+op=$(echo "$op"|tr [A-Z] [a-z])
+
+case $op in
+add) echo "Addition = $((a+b))";;
+*) echo "Invalid input";;
+esac

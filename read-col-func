@@ -1,0 +1,19 @@
+#!/bin/bash
+
+g="\e[32m"
+
+b="\e[34m"
+
+n="\e[0m"
+
+ECHO() {
+echo -en "$g$1$n"
+}
+
+ECHO "Enter your name: "
+read name
+
+echo -e " $b Hello $name $n"
+
+
+

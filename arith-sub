@@ -1,0 +1,14 @@
+#!/bin/bash
+## This is for arithmatic sub
+a=450
+b=10
+add=$((a+b))
+sub=$((a-b))
+mul=$((a*b))
+div=$((a/b))
+
+echo addition=$add
+echo subtraction=$sub
+echo multiplication=$mul
+echo division=$div
+

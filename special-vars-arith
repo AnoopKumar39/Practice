@@ -1,0 +1,17 @@
+#!/bin/bash
+
+func() {
+echo "Multiplication = $(($1*$4))"
+}
+
+echo "Addition = $(($1+$2))"
+
+echo "Subtraction = $(($1-$2))"
+
+echo "Multiplication = $(($1*$2))"
+
+echo "Division = $(($1/$2))"
+
+echo "Addition = $((1+2))"
+
+func 40 20 10 5

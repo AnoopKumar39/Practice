@@ -1,0 +1,17 @@
+#!/bin/bash
+
+func() {
+echo -e "\e[32mMonitoring Menu\e[0m"
+echo -e "\e[33m1) To check free memory\n2) To check load average\n3) To check free disk space available\e[0m"
+}
+
+func
+
+read -p 'Enter any value: ' val
+
+case $val in
+1) echo "total memory = $(free -m|grep Mem|awk '{print $2}')" ;;
+2) echo "load average = $(uptime|awk '{print $10}')" ;;
+3) echo "disk space" = $(df -h|grep /dev/xvda1) ;;
+*) echo -e "\e[31mInvalid input\e[0m" ; func
+esac
