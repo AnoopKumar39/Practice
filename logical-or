@@ -1,13 +1,10 @@
 #!/bin/bash
 
 read -p 'Enter first value: ' val1
-if [ -z "$val1" ]
-then
-	exit 1
-fi
 
 read -p 'Enter second value: ' val2
-if [ -z "$val2" ]
+
+if [ -z "$val1" -o -z "$val2"]
 then
 	exit 1
 fi
