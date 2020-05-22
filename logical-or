@@ -1,9 +1,7 @@
 #!/bin/bash
 
 read -p 'Enter first value: ' val1
-
 read -p 'Enter second value: ' val2
-
 if [ -z "$val1" -o -z "$val2" ]
 then
 	exit 1
