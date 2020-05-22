@@ -1,0 +1,28 @@
+#!/bin/bash
+
+usage() {
+
+echo "Usage: $0 val1 val2 operator"
+
+}
+
+read -p 'Enter first value: ' a
+
+read -p 'Enter second value: ' b
+
+read -p 'Enter the operator (add|sub|mul|div): ' op
+
+if [ $# -ne 3]
+then
+	echo "Invalid input"
+	usage
+	exit 1
+fi
+
+case $op in
+add) echo "Addition = $((a+b))";;
+sub) echo "Subtraction =$((a-b))";;
+mul) echo "Multiplication = $((a*b))";;
+div) echo "Division = $((a/b))";;
+*) echo "Invalid input";;
+esac
