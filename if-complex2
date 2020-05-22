@@ -14,9 +14,11 @@ then
 fi
 
 case $3 in
-add) echo "Addition = $((a+b))";;
-sub) echo "Subtraction =$((a-b))";;
-mul) echo "Multiplication = $((a*b))";;
-div) echo "Division = $((a/b))";;
+add) echo "Addition = $(($1+$2))";;
+sub) echo "Subtraction =$(($1-$2))";;
+mul) echo "Multiplication = $(($1*$2))";;
+div) echo "Division = $(($1/$2))";;
 *) echo "Invalid input";;
 esac
+
+##
