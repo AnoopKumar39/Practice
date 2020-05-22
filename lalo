@@ -1,0 +1,14 @@
+#!/bin/bash
+
+id=$(id -u)
+
+read -p 'Enter file name: ' file
+
+if [ $id -eq 0 -a -f $file ]
+then
+	echo 'You are a root user'
+	echo "File $file exists"
+fi
+
+[ $id -eq 0 ] && [ -f $file ] && echo 'You are on right path!'
+
