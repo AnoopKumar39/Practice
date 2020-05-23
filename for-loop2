@@ -1,4 +1,4 @@
-#!/bin/bash
+								#!/bin/bash
 read -p 'Enter the first value: ' a
 read -p 'Enter the second value: ' b
 for var in add sub mul div; do
