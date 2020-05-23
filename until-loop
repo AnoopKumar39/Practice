@@ -1,3 +1,4 @@
 #!/bin/bas
 read -p 'Enter the value: ' A
-until []
+until [ $A -lt 0 ]; do
+    echo ""
