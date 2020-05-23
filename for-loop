@@ -1,3 +1,5 @@
 #!/bin/bash
 for server in localhost host1 host2
 do
+    ping $server
+    if [ $? -eq ]
