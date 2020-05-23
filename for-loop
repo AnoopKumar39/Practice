@@ -2,4 +2,5 @@
 for server in localhost host1 host2
 do
     ping $server
-    if [ $? -eq ]
+    if [ $? -eq 0 ]then;
+    
