@@ -7,5 +7,6 @@ do
         ssh localhost >> /dev/null
         sleep 5
         logout
-    fi
     
+    fi
+
