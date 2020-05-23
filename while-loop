@@ -3,4 +3,5 @@ read -p 'Enter the value: ' i
 while [ $i -gt 0 ]; do
     echo "Iteration number = $i"
     i=$(($i-l))
+    sleep 2
 done
