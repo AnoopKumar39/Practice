@@ -9,6 +9,6 @@ do
         logout
     else
         echo "Ping failed"
-    fi
+    fi //
 done
 
