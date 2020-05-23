@@ -7,6 +7,8 @@ do
         ssh localhost >> /dev/null
         sleep 5
         logout
-    
+    else
+        echo "Ping failed"
     fi
+done
 
