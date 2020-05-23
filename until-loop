@@ -1,4 +1,4 @@
-#!/bin/bas
+#!/bin/bash
 read -p 'Enter the value: ' A
 until [ $A -lt 0 ]; do
     echo "Iteration number = $A"
