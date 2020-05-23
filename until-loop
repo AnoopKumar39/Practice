@@ -1,4 +1,5 @@
 #!/bin/bas
 read -p 'Enter the value: ' A
 until [ $A -lt 0 ]; do
-    echo ""
+    echo "Iteration number = $A"
+    A=$(($A+))
