@@ -1,4 +1,6 @@
 #!/bin/bash
 read -p 'Enter the value: ' i
 while [ $i -gt 0 ]; do
-    echo "Itea"
+    echo "Iteration number = $i"
+    i = $(i-l)
+    
