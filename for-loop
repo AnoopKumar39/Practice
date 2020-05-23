@@ -9,7 +9,8 @@ do
         logout
     else
         echo "Ping failed"
-    fi */
+    fi 
+*/
     ssh centos@localhost
 done
 
