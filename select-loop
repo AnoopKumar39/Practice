@@ -1,0 +1,13 @@
+#!/bin/bash
+read -p 'Enter the first value: ' a
+read -p 'Enter the second value: ' b
+select var in add sub mul div; do
+case $var in
+	add) echo "Additon = $((a+b))";;
+	sub) echo "Subtraction = $((a-b))";;
+	mul) echo "Multiplication = $((a*b))";;
+	div) echo "Division = $((a/b))";;
+esac
+sleep 2
+done
+
