@@ -1,2 +1,3 @@
 #!/bin/bash
-read -p 'Enter '
+read -p 'Enter the value: ' a
+while 
