@@ -1,7 +1,7 @@
 #!/bin/bash
 for server in localhost host1 host2
 do
-//    ping $server
+/*    ping $server
     if [ $? -eq 0 ]
     then
         ssh localhost >> /dev/null
