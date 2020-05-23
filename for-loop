@@ -1,16 +1,6 @@
 #!/bin/bash
 for server in localhost host1 host2
 do
-/*    ping $server
-    if [ $? -eq 0 ]
-    then
-        ssh localhost >> /dev/null
-        sleep 5
-        logout
-    else
-        echo "Ping failed"
-    fi 
-*/
     ssh centos@localhost
 done
 
