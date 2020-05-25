@@ -1,0 +1,15 @@
+#!/bin/bash
+### List of countries
+echo Namibia
+echo Nauru
+echo Nepal
+echo Netherlands
+echo NewZealand
+echo Nicaragua
+echo nachovarga
+echo name-none
+echo 145698
+echo Niger
+echo Nigeria
+echo NorthKorea
+echo Norway
