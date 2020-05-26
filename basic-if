@@ -24,4 +24,3 @@ then
 else
 	echo -e "\e[35mInvalid input\e[0m"
 fi
-

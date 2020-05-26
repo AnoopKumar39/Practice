@@ -11,4 +11,3 @@ echo addition=$add
 echo subtraction=$sub
 echo multiplication=$mul
 echo division=$div
-

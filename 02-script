@@ -10,4 +10,3 @@ elif [ $X -gt $Y ];then
 else
 	echo "X is equal to Y"
 fi
-

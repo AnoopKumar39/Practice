@@ -2,4 +2,3 @@
 ## This is for command substitution
 echo "Today's date is $(date +%F)"
 echo "Today's date is `date +%F`"
-

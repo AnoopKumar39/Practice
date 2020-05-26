@@ -13,4 +13,3 @@ echo "Used Memory = $used"
 echo "Free Memory = $free"
 
 echo "Free Memory % = $fre"
-
