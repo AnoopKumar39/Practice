@@ -12,5 +12,3 @@ local dated=20th-May
 just
 
 echo -e "\e[33mToday's date is $dated\e[0m"
-
-

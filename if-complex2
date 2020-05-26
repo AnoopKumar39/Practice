@@ -20,5 +20,3 @@ mul) echo "Multiplication = $(($1*$2))";;
 div) echo "Division = $(($1/$2))";;
 *) echo "Invalid input";;
 esac
-
-##

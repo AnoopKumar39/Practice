@@ -5,6 +5,3 @@ read -p 'Enter your location : ' loc
 read -s -p 'Enter your password : ' pass
 
 echo -e "\e[32mHello $name, your location is $loc and your password is $pass\e[0m"
-
-
-
