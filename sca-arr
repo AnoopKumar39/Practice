@@ -7,4 +7,3 @@ echo all again = ${name[@]}
 #echo all again = ${name[&]}
 echo number of values = ${#name[*]}
 echo range of values = ${name[*]:3:2}
-

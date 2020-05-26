@@ -10,4 +10,3 @@ case $var in
 esac
 sleep 2
 done
-
