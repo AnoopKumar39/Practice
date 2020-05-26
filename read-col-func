@@ -14,6 +14,3 @@ ECHO "Enter your name: "
 read name
 
 echo -e " $b Hello $name $n"
-
-
-
