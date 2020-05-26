@@ -11,6 +11,3 @@ echo -e $r"addition = $((val1+val2))"
 echo "subtraction = $((val1-val2))"
 echo "multiplication = $((val1*val2))"
 echo -e "division = $((val1/val2)) $n"
-
-
-

@@ -11,5 +11,3 @@ while [ $i -le 100 ];do
 	i=$((i+2))
 	sleep 2
 done
-
-
