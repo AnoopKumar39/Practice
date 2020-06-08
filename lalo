@@ -11,3 +11,5 @@ then
 fi
 
 [ $id -eq 0 ] && [ -f $file ] && echo 'You are on right path!'
+
+echo "hello world!"

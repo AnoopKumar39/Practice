@@ -1,0 +1,4 @@
+#!/bin/bash
+##
+echo "just a thing"
+echo -e "\e[31mPrint in red-color\e[0m"

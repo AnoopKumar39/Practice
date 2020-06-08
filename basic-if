@@ -24,3 +24,5 @@ then
 else
 	echo -e "\e[35mInvalid input\e[0m"
 fi
+
+echo "Hello, your script ran successfully"
