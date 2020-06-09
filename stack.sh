@@ -3,6 +3,7 @@
 LOG=/tmp/logfile
 sudo rm -rf /tmp/logfile
 APPUSER=student
+tomcat-version=$(curl -s "https://archive.apache.org/dist/tomcat/tomcat-8/?C=M;O=A" | grep 8.5 | tail -1 | awk '{print $5}' | awk -F '"' '{print $2}' | sed -e 's/v//' -e 's/\///')
 
 ############ Functions ########
 
@@ -36,7 +37,7 @@ fi
 #### Web-Server-Installation ##########
 
 echo -e "${B}Installing httpd-server${N}"
-yum install httpd &>> $LOG
+yum install httpd -y &>> $LOG
 stat
 
 echo -e "${B}Updating proxy-config${N}"
