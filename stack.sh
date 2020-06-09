@@ -28,7 +28,7 @@ stat() {
 #### Check-whether root user or not ########
 id=$(id -u)
 if [ $id -ne 0 ]; then 
-echo "${R}You should be a root user to perform this action${N}"
+echo "${R} You should be a root user to perform this action${N}"
 exit 1
 fi
 
