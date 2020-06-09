@@ -2,6 +2,7 @@
 
 LOG=/tmp/logfile
 sudo rm -rf /tmp/logfile
+APPUSER=student
 
 ############ Functions ########
 
@@ -52,3 +53,22 @@ systemctl enable httpd &>> $LOG
 stat
 systemctl start httpd &>> $LOG
 stat
+
+######## Application-Server-Installation ###########
+###### Creating application user ########
+id $APPUSER &> $LOG
+if [ $? -eq 0 ]; then
+echo -e "${G}$APPUSER is already created${N}"
+else
+useradd $APPUSER &> $LOG
+fi
+stat
+
+##### Installing java #####
+yum install java -y &> $LOG
+stat
+
+#### Download and unarchire tomcat ####
+wget -qO- https://archive.apache.org/dist/tomcat/tomcat-8/v8.5.43/bin/apache-tomcat-8.5.43.tar.gz | tar -xz &> $LOG
+cd apache-tomcat-${tomcat-version}
+
