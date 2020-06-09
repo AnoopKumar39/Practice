@@ -25,25 +25,19 @@ fi
 
 echo "Installing httpd-server"
 yum install httpd -y &>> $LOG
-echo $?
+stat $?
 
 echo "Updating proxy-config"
 echo 'ProxyPass "/student" "http://APP-SERVER-IPADDRESS:8080/student"
 ProxyPassReverse "/student"  "http://APP-SERVER-IPADDRESS:8080/student"' > /etc/httpd/conf.d/app-proxy.conf
-echo $?
+stat $?
 
 echo "Downloading index-file"
 curl -s https://s3-us-west-2.amazonaws.com/studentapi-cit/index.html -o /var/www/html/index.html &>> $LOG
-echo $?
+stat $?
 
 echo "Enabling-starting httpd"
 systemctl enable httpd &>> $LOG
-echo $?
+stat $?
 systemctl start httpd &>> $LOG
-echo $?
-
-
-
-
-
-
+stat $?
