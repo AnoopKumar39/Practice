@@ -35,7 +35,7 @@ fi
 #### Web-Server-Installation ##########
 
 echo -e "${B}Installing httpd-server${N}"
-yum install httpd -y &>> $LOG
+yum install httpd &>> $LOG
 stat
 
 echo -e "${B}Updating proxy-config${N}"
