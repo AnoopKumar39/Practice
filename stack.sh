@@ -3,7 +3,7 @@
 LOG=/tmp/logfile
 sudo rm -rf /tmp/logfile
 APPUSER=student
-tomcat-version=$(curl -s "https://archive.apache.org/dist/tomcat/tomcat-8/?C=M;O=A" | grep 8.5 | tail -1 | awk '{print $5}' | awk -F '"' '{print $2}' | sed -e 's/v//' -e 's/\///') &> $LOG
+TOMCAT_VERSION=$(curl -s "https://archive.apache.org/dist/tomcat/tomcat-8/?C=M;O=A" | grep 8.5 | tail -1 | awk '{print $5}' | awk -F '"' '{print $2}' | sed -e 's/v//' -e 's/\///') &> $LOG
 
 ############ Functions ########
 
@@ -71,5 +71,5 @@ stat
 
 #### Download and unarchire tomcat ####
 wget -qO- https://archive.apache.org/dist/tomcat/tomcat-8/v8.5.43/bin/apache-tomcat-8.5.43.tar.gz | tar -xz &> $LOG
-cd apache-tomcat-${tomcat-version}
+cd apache-tomcat-${TOMCAT_VERSION}
 
