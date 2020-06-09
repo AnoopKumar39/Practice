@@ -1,7 +1,7 @@
 #!/bin/bash
 
 LOG=/tmp/logfile
-rm -rf /tmp/logfile
+sudo rm -rf /tmp/logfile
 
 ############ Functions ########
 
