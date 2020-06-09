@@ -11,6 +11,7 @@ stat() {
     echo "Sucessful"
     else
     echo "Un-sucessfull-please refer log file at the location $LOG"
+    fi
 }
 
 
