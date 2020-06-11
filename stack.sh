@@ -61,7 +61,7 @@ stat
 echo -e "${B}Creating application user${N}"
 id $APPUSER &>> $LOG
 if [ $? -eq 0 ]; then
-exit 0
+true
 else
 useradd $APPUSER &>> $LOG
 fi
