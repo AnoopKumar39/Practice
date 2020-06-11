@@ -41,8 +41,8 @@ yum install httpd -y &>> $LOG
 stat
 
 echo -e "${B}Updating proxy-config${N}"
-echo 'ProxyPass "/student" "http://APP-SERVER-IPADDRESS:8080/student"
-ProxyPassReverse "/student"  "http://APP-SERVER-IPADDRESS:8080/student"' > /etc/httpd/conf.d/app-proxy.conf
+echo 'ProxyPass "/student" "http://localhost:8080/student"
+ProxyPassReverse "/student"  "http://localhost:8080/student"' > /etc/httpd/conf.d/app-proxy.conf
 stat
 
 echo -e "${B}Downloading index-file${N}"
