@@ -4,7 +4,7 @@ LOG=/tmp/logfile
 sudo rm -rf /tmp/logfile
 APPUSER=student
 TOMCAT_VERSION=$(curl -s "https://archive.apache.org/dist/tomcat/tomcat-8/?C=M;O=A" | grep 8.5 | tail -1 | awk '{print $5}' | awk -F '"' '{print $2}' | sed -e 's/v//' -e 's/\///') &>> $LOG
-
+TOMCAT_DIR=/home/${APPUSER}/apache-tomcat-${TOMCAT_VERSION}
 ############ Functions ########
 
 ### Colors ####
@@ -82,6 +82,7 @@ tar -xf apache-tomcat-${TOMCAT_VERSION}.tar.gz &>> $LOG
 stat
 
 #### Download application file and jdbc driver ######
+cd ${TOMCAT_DIR}
 echo -e "${B}Downloading war file${N}"
 wget https://s3-us-west-2.amazonaws.com/studentapi-cit/student.war -O webapps/student.war &>> $LOG
 stat
@@ -92,6 +93,7 @@ stat
 ###S Setting-up context.xml #####
 echo -e "${B}Modifying context.xml file${N}"
 sed -i -e '$ i <Resource name="jdbc/TestDB" auth="Container" type="javax.sql.DataSource" maxTotal="100" maxIdle="30" maxWaitMillis="10000" username="USERNAME" password="PASSWORD" driverClassName="com.mysql.jdbc.Driver" url="jdbc:mysql://RDS-DB-ENDPOINT:3306/DATABASE"/>' /conf/context.xml
+stat
 echo -e "${B}Changing tomcat permissions${N}"
 chown -R ${APPUSER}:${APPUSER} apache-tomcat-${TOMCAT_VERSION}
 stat
