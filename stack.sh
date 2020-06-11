@@ -49,14 +49,16 @@ echo -e "${B}Downloading index-file${N}"
 curl -s https://s3-us-west-2.amazonaws.com/studentapi-cit/index.html -o /var/www/html/index.html &>> $LOG
 stat
 
-echo -e "${B}Enabling-starting httpd${N}"
+echo -e "${B}Enabling httpd${N}"
 systemctl enable httpd &>> $LOG
 stat
+echo -e "${B}Starting httpd${N}"
 systemctl start httpd &>> $LOG
 stat
 
 ######## Application-Server-Installation ###########
 ###### Creating application user ########
+echo -e "{B}Creating application user${N}"
 id $APPUSER &> $LOG
 if [ $? -eq 0 ]; then
 echo -e "${G}$APPUSER is already created${N}"
@@ -66,10 +68,12 @@ fi
 stat
 
 ##### Installing java #####
+echo -e "${B}Installing java${N}"
 yum install java -y &> $LOG
 stat
 
 #### Download and unarchire tomcat ####
-wget -qO- https://archive.apache.org/dist/tomcat/tomcat-8/v8.5.43/bin/apache-tomcat-8.5.43.tar.gz | tar -xz &> $LOG
+echo -e "${B}Downloading tomcat${N}"
+wget -qO- https://archive.apache.org/dist/tomcat/tomcat-8/v${TOMCAT_VERSION}/bin/apache-tomcat-${TOMCAR_VERSION}.tar.gz | tar -xz &> $LOG
 cd apache-tomcat-${TOMCAT_VERSION}
 
