@@ -3,7 +3,7 @@
 LOG=/tmp/logfile
 sudo rm -rf /tmp/logfile
 APPUSER=student
-TOMCAT_VERSION=$(curl -s "https://archive.apache.org/dist/tomcat/tomcat-8/?C=M;O=A" | grep 8.5 | tail -1 | awk '{print $5}' | awk -F '"' '{print $2}' | sed -e 's/v//' -e 's/\///') &> $LOG
+TOMCAT_VERSION=$(curl -s "https://archive.apache.org/dist/tomcat/tomcat-8/?C=M;O=A" | grep 8.5 | tail -1 | awk '{print $5}' | awk -F '"' '{print $2}' | sed -e 's/v//' -e 's/\///') &>> $LOG
 
 ############ Functions ########
 
@@ -59,22 +59,22 @@ stat
 ######## Application-Server-Installation ###########
 ###### Creating application user ########
 echo -e "${B}Creating application user${N}"
-id $APPUSER &> $LOG
+id $APPUSER &>> $LOG
 if [ $? -eq 0 ]; then
-echo -e "${G}$APPUSER is already created${N}"
+exit 0
 else
-useradd $APPUSER &> $LOG
+useradd $APPUSER &>> $LOG
 fi
 stat
 
 ##### Installing java #####
 echo -e "${B}Installing java${N}"
-yum install java -y &> $LOG
+yum install java -y &>> $LOG
 stat
 
 #### Download and unarchire tomcat ####
 echo -e "${B}Downloading tomcat${N}"
-wget -qO- https://archive.apache.org/dist/tomcat/tomcat-8/v${TOMCAT_VERSION}/bin/apache-tomcat-${TOMCAR_VERSION}.tar.gz | tar -xz &> $LOG
+wget -qO- https://archive.apache.org/dist/tomcat/tomcat-8/v${TOMCAT_VERSION}/bin/apache-tomcat-${TOMCAR_VERSION}.tar.gz | tar -xz &>> $LOG
 stat
 
 #cd apache-tomcat-${TOMCAT_VERSION}
