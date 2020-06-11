@@ -75,7 +75,7 @@ stat
 #### Download and unarchire tomcat ####
 echo -e "${B}Downloading tomcat${N}"
 echo "${TOMCAT_VERSION}"
-wget https://archive.apache.org/dist/tomcat/tomcat-8/v8.5.56/bin/apache-tomcat-8.5.56.tar.gz &>> $LOG
+wget https://archive.apache.org/dist/tomcat/tomcat-8/v8.5.56/bin/apache-tomcat-8.5.56.tar.gz | tar -xf &>> $LOG
 stat
 
 #cd apache-tomcat-${TOMCAT_VERSION}
