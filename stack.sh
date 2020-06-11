@@ -90,7 +90,7 @@ echo -e "${B}Downloading jdbc driver ${N}"
 wget https://s3-us-west-2.amazonaws.com/studentapi-cit/mysql-connector.jar -O lib/mysql-connector.jar &>> $LOG
 stat
 
-###S Setting-up context.xml #####
+### Setting-up context.xml #####
 echo -e "${B}Modifying context.xml file${N}"
 sed -i -e '$ i <Resource name="jdbc/TestDB" auth="Container" type="javax.sql.DataSource" maxTotal="100" maxIdle="30" maxWaitMillis="10000" username="USERNAME" password="PASSWORD" driverClassName="com.mysql.jdbc.Driver" url="jdbc:mysql://RDS-DB-ENDPOINT:3306/DATABASE"/>' conf/context.xml
 stat
@@ -99,4 +99,6 @@ cd /home/student
 chown -R ${APPUSER}:${APPUSER} apache-tomcat-${TOMCAT_VERSION}
 stat
 
-
+#### Starting tomcat #####
+cd ${TOMCAT_DIR}
+bin/startup.sh &>> $LOG
