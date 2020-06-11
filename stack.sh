@@ -62,7 +62,6 @@ echo -e "${B}Creating application user${N}"
 id $APPUSER &> $LOG
 if [ $? -eq 0 ]; then
 echo -e "${G}$APPUSER is already created${N}"
-return 1
 else
 useradd $APPUSER &> $LOG
 fi
@@ -76,5 +75,6 @@ stat
 #### Download and unarchire tomcat ####
 echo -e "${B}Downloading tomcat${N}"
 wget -qO- https://archive.apache.org/dist/tomcat/tomcat-8/v${TOMCAT_VERSION}/bin/apache-tomcat-${TOMCAR_VERSION}.tar.gz | tar -xz &> $LOG
-cd apache-tomcat-${TOMCAT_VERSION}
+stat
 
+#cd apache-tomcat-${TOMCAT_VERSION}
