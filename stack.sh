@@ -95,6 +95,7 @@ echo -e "${B}Modifying context.xml file${N}"
 sed -i -e '$ i <Resource name="jdbc/TestDB" auth="Container" type="javax.sql.DataSource" maxTotal="100" maxIdle="30" maxWaitMillis="10000" username="USERNAME" password="PASSWORD" driverClassName="com.mysql.jdbc.Driver" url="jdbc:mysql://RDS-DB-ENDPOINT:3306/DATABASE"/>' conf/context.xml
 stat
 echo -e "${B}Changing tomcat permissions${N}"
+cd /home/student
 chown -R ${APPUSER}:${APPUSER} apache-tomcat-${TOMCAT_VERSION}
 stat
 
