@@ -58,10 +58,11 @@ stat
 
 ######## Application-Server-Installation ###########
 ###### Creating application user ########
-echo -e "{B}Creating application user${N}"
+echo -e "${B}Creating application user${N}"
 id $APPUSER &> $LOG
 if [ $? -eq 0 ]; then
 echo -e "${G}$APPUSER is already created${N}"
+return 1
 else
 useradd $APPUSER &> $LOG
 fi
