@@ -16,17 +16,17 @@ M="\e[35m"
 C="\e[36m"
 N="\e[0m"
 
+print() {
+    echo -e "${B}$1${N}"
+}
 
 ### Status-function #########
 stat() {
     if [ $? -eq 0 ]; then
-    echo -e "${G}Sucessful${N}"
+    echo -e -n "${G}Sucessful${N}"
     else
-    echo -e "${R}Un-sucessfull-please refer log file at the location $LOG${N}"
+    echo -e -n "${R}Un-sucessfull-please refer log file at the location $LOG${N}"
     fi
-}
-print() {
-    echo -e "${B}$1${N}"
 }
 
 #### Check-whether root user or not ########
@@ -38,29 +38,29 @@ fi
 
 #### Web-Server-Installation ##########
 
-echo -e "${B}Installing httpd-server${N}"
+print "Installing httpd-server"
 yum install httpd -y &>> $LOG
 stat
 
-echo -e "${B}Updating proxy-config${N}"
+print "Updating proxy-config"
 echo 'ProxyPass "/student" "http://localhost:8080/student"
 ProxyPassReverse "/student"  "http://localhost:8080/student"' > /etc/httpd/conf.d/app-proxy.conf
 stat
 
-echo -e "${B}Downloading index-file${N}"
+print "Downloading index-file"
 curl -s https://s3-us-west-2.amazonaws.com/studentapi-cit/index.html -o /var/www/html/index.html &>> $LOG
 stat
 
-echo -e "${B}Enabling httpd${N}"
+print "Enabling httpd"
 systemctl enable httpd &>> $LOG
 stat
-echo -e "${B}Starting httpd${N}"
+print "Starting httpd"
 systemctl start httpd &>> $LOG
 stat
 
 ######## Application-Server-Installation ###########
 ###### Creating application user ########
-echo -e "${B}Creating application user${N}"
+print "Creating application user"
 id $APPUSER &>> $LOG
 if [ $? -eq 0 ]; then
 true
@@ -70,38 +70,39 @@ fi
 stat
 
 ##### Installing java #####
-echo -e "${B}Installing java${N}"
+print "Installing java"
 yum install java -y &>> $LOG
 stat
 
 #### Download and unarchire tomcat ####
-echo -e "${B}Downloading tomcat${N}"
+print "Downloading tomcat"
 cd /home/${APPUSER}
 wget https://archive.apache.org/dist/tomcat/tomcat-8/v${TOMCAT_VERSION}/bin/apache-tomcat-${TOMCAT_VERSION}.tar.gz &>> $LOG
 stat
-echo -e "${B}Unarchiving tomcat${N}"
+print "Unarchiving tomcat"
 tar -xf apache-tomcat-${TOMCAT_VERSION}.tar.gz &>> $LOG
 stat
 
 #### Download application file and jdbc driver ######
 cd ${TOMCAT_DIR}
-echo -e "${B}Downloading war file${N}"
+print "Downloading war file"
 wget https://s3-us-west-2.amazonaws.com/studentapi-cit/student.war -O webapps/student.war &>> $LOG
 stat
-echo -e "${B}Downloading jdbc driver ${N}"
+print "Downloading jdbc driver"
 wget https://s3-us-west-2.amazonaws.com/studentapi-cit/mysql-connector.jar -O lib/mysql-connector.jar &>> $LOG
 stat
 
 ### Setting-up context.xml #####
-echo -e "${B}Modifying context.xml file${N}"
+print "Modifying context.xml file"
 sed -i -e '$ i <Resource name="jdbc/TestDB" auth="Container" type="javax.sql.DataSource" maxTotal="100" maxIdle="30" maxWaitMillis="10000" username="USERNAME" password="PASSWORD" driverClassName="com.mysql.jdbc.Driver" url="jdbc:mysql://RDS-DB-ENDPOINT:3306/DATABASE"/>' conf/context.xml
 stat
-echo -e "${B}Changing tomcat permissions${N}"
+print "Changing tomcat permissions"
 cd /home/student
 chown -R ${APPUSER}:${APPUSER} apache-tomcat-${TOMCAT_VERSION}
 stat
 
 #### Starting tomcat #####
+print "Starting tomcat"
 cd ${TOMCAT_DIR}
 bin/startup.sh &>> $LOG
 stat
