@@ -23,16 +23,16 @@ print() {
 ### Status-function #########
 stat() {
     if [ $? -eq 0 ]; then
-    echo -e "${G}Sucessful${N}"
+    echo -e "\t\t\t${G}Sucessful${N}"
     else
-    echo -e "${R}Un-sucessfull-please refer log file at the location $LOG${N}"
+    echo -e "\t\t\t${R}Un-sucessfull-please refer log file at the location $LOG${N}"
     fi
 }
 
 #### Check-whether root user or not ########
 id=$(id -u)
 if [ $id -ne 0 ]; then 
-print "You should be a root user to perform this action"
+echo -e "${B}You should be a root user to perform this action${N}"
 exit 1
 fi
 
