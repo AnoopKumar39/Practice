@@ -23,9 +23,9 @@ print() {
 ### Status-function #########
 stat() {
     if [ $? -eq 0 ]; then
-    echo -e "\t\t\t${G}Sucessful${N}"
+    echo -e "\t\t${G}Sucessful${N}"
     else
-    echo -e "\t\t\t${R}Un-sucessfull-please refer log file at the location $LOG${N}"
+    echo -e "\t\t${R}Un-sucessfull-please refer log file at the location $LOG${N}"
     fi
 }
 
@@ -51,10 +51,10 @@ print "Downloading index-file"
 curl -s https://s3-us-west-2.amazonaws.com/studentapi-cit/index.html -o /var/www/html/index.html &>> $LOG
 stat
 
-print "Enabling httpd"
+print "\tEnabling httpd"
 systemctl enable httpd &>> $LOG
 stat
-print "Starting httpd"
+print "\tStarting httpd"
 systemctl start httpd &>> $LOG
 stat
 
