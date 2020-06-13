@@ -17,15 +17,15 @@ C="\e[36m"
 N="\e[0m"
 
 print() {
-    echo -e "${B}$1${N}"
+    echo -e -n "${B}$1${N}"
 }
 
 ### Status-function #########
 stat() {
     if [ $? -eq 0 ]; then
-    echo -e -n "${G}Sucessful${N}"
+    echo -e "${G}Sucessful${N}"
     else
-    echo -e -n "${R}Un-sucessfull-please refer log file at the location $LOG${N}"
+    echo -e "${R}Un-sucessfull-please refer log file at the location $LOG${N}"
     fi
 }
 
