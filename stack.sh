@@ -23,9 +23,9 @@ print() {
 ### Status-function #########
 stat() {
     if [ $? -eq 0 ]; then
-    echo -e "\t\t${G}Sucessful${N}"
+    echo -e "${G}Sucessful${N}"
     else
-    echo -e "\t\t${R}Un-sucessfull-please refer log file at the location $LOG${N}"
+    echo -e "${R}Un-sucessfull-please refer log file at the location $LOG${N}"
     fi
 }
 
@@ -38,23 +38,23 @@ fi
 
 #### Web-Server-Installation ##########
 
-print "Installing httpd-server"
+print "Installing httpd-server\t"
 yum install httpd -y &>> $LOG
 stat
 
-print "Updating proxy-config"
+print "Updating proxy-config\t"
 echo 'ProxyPass "/student" "http://localhost:8080/student"
 ProxyPassReverse "/student"  "http://localhost:8080/student"' > /etc/httpd/conf.d/app-proxy.conf
 stat
 
-print "Downloading index-file"
+print "Downloading index-file\t"
 curl -s https://s3-us-west-2.amazonaws.com/studentapi-cit/index.html -o /var/www/html/index.html &>> $LOG
 stat
 
-print "\tEnabling httpd"
+print "Enabling httpd\t\t"
 systemctl enable httpd &>> $LOG
 stat
-print "\tStarting httpd"
+print "Starting httpd\t\t"
 systemctl start httpd &>> $LOG
 stat
 
@@ -70,25 +70,25 @@ fi
 stat
 
 ##### Installing java #####
-print "Installing java"
+print "Installing java\t\t"
 yum install java -y &>> $LOG
 stat
 
 #### Download and unarchire tomcat ####
-print "Downloading tomcat"
+print "Downloading tomcat\t"
 cd /home/${APPUSER}
 wget https://archive.apache.org/dist/tomcat/tomcat-8/v${TOMCAT_VERSION}/bin/apache-tomcat-${TOMCAT_VERSION}.tar.gz &>> $LOG
 stat
-print "Unarchiving tomcat"
+print "Unarchiving tomcat\t"
 tar -xf apache-tomcat-${TOMCAT_VERSION}.tar.gz &>> $LOG
 stat
 
 #### Download application file and jdbc driver ######
 cd ${TOMCAT_DIR}
-print "Downloading war file"
+print "Downloading war file\t"
 wget https://s3-us-west-2.amazonaws.com/studentapi-cit/student.war -O webapps/student.war &>> $LOG
 stat
-print "Downloading jdbc driver"
+print "Downloading jdbc driver\t"
 wget https://s3-us-west-2.amazonaws.com/studentapi-cit/mysql-connector.jar -O lib/mysql-connector.jar &>> $LOG
 stat
 
@@ -102,7 +102,7 @@ chown -R ${APPUSER}:${APPUSER} apache-tomcat-${TOMCAT_VERSION}
 stat
 
 #### Starting tomcat #####
-print "Starting tomcat"
+print "Starting tomcat\t\t"
 cd ${TOMCAT_DIR}
 bin/startup.sh &>> $LOG
 stat
