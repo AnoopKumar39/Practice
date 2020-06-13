@@ -102,3 +102,4 @@ stat
 #### Starting tomcat #####
 cd ${TOMCAT_DIR}
 bin/startup.sh &>> $LOG
+stat
