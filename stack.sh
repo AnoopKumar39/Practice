@@ -25,12 +25,14 @@ stat() {
     echo -e "${R}Un-sucessfull-please refer log file at the location $LOG${N}"
     fi
 }
-
+print() {
+    echo -e "${B}$1${N}"
+}
 
 #### Check-whether root user or not ########
 id=$(id -u)
 if [ $id -ne 0 ]; then 
-echo -e "${R} You should be a root user to perform this action${N}"
+print "You should be a root user to perform this action"
 exit 1
 fi
 
