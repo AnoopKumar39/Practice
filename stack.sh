@@ -106,3 +106,4 @@ print "Starting tomcat\t\t"
 cd ${TOMCAT_DIR}
 bin/startup.sh &>> $LOG
 stat
+#####
