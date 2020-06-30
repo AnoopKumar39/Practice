@@ -26,3 +26,5 @@ else
 fi
 
 echo "Hello, your script ran successfully"
+echo "Processes running now"
+ps aux
