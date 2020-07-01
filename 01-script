@@ -12,3 +12,8 @@ while [ $i -le 100 ];do
 	sleep 2
 done
 ####
+until [ $i -ge 10 ]; do
+	echo $i
+	i=$((i+2))
+	sleep 2
+##########
