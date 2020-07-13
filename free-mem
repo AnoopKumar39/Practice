@@ -4,6 +4,7 @@
 tot=$(free -m|grep Mem|awk '{print $2}')
 free=$(free -m|grep Mem|awk '{print $4}')
 used=$(free -m|grep Mem|awk '{print $3}')
+used=$(free -m|grep Mem|awk '{print $3}')
 
 fre=$((free*100))
 fre=$((fre/tot))
