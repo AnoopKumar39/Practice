@@ -76,3 +76,15 @@ ProxyPass "/student" "http://APP-SERVER-IPADDRESS:8080/student"
 ProxyPassReverse "/student"  "http://APP-SERVER-IPADDRESS:8080/student"
 Loaded plugins: fastestmirror
 You need to be root to perform this command.
+ProxyPass "/student" "http://APP-SERVER-IPADDRESS:8080/student"
+ProxyPassReverse "/student"  "http://APP-SERVER-IPADDRESS:8080/student"
+Created symlink from /etc/systemd/system/multi-user.target.wants/httpd.service to /usr/lib/systemd/system/httpd.service.
+Loaded plugins: fastestmirror
+Loading mirror speeds from cached hostfile
+ * epel: iad.mirror.rackspace.com
+Package httpd-2.4.6-93.el7.centos.x86_64 already installed and latest version
+Nothing to do
+ProxyPass "/student" "http://APP-SERVER-IPADDRESS:8080/student"
+ProxyPassReverse "/student"  "http://APP-SERVER-IPADDRESS:8080/student"
+Loaded plugins: fastestmirror
+You need to be root to perform this command.
