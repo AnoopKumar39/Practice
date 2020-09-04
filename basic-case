@@ -42,3 +42,4 @@ sub) echo "Subtraction = $(($a-$b))" ;;
 mul) echo "Multiplication = $(($a*$b))" ;;
 div) echo "Division = $(($a/$b))" ;;
 *) echo -e "\e[31mInvalid Input\e[0m"
+####### echo hello
