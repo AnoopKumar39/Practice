@@ -8,3 +8,4 @@ for server in localhost host11 host21
 do
     ssh centos@$server
 done
+######
