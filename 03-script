@@ -4,3 +4,4 @@ echo "just a thing"
 echo -e "\e[31mPrint in red-color\e[0m"
 ###
 echo -e "\e[33mPrint in yellow-color\e[0m"
+echo -e "\e[33mPrint in yellow-color\e[0m"
