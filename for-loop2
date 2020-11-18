@@ -10,3 +10,6 @@ case $var in
 esac
 sleep 2
 done
+##esac
+##sleep 2
+##done
